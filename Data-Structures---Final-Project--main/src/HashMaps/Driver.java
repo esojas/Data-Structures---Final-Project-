@@ -8,8 +8,9 @@ public class Driver {
         // Create a HashMap to store the name-number pairs
         MyHashmaps<String, Integer> nameToNumberMap = new MyHashmaps<>();
 
+        long start = System.currentTimeMillis();
         // Read data from a txt file
-        try (BufferedReader reader = new BufferedReader(new FileReader("Data-Structures---Final-Project--main/src/Data/Data.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Data-Structures---Final-Project--main/src/Data/large_dataset.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -31,14 +32,16 @@ public class Driver {
 
         // sorting the score
         quickSort.quickSort(intArray,0, intArray.length-1);
-        HeapSort.sort(intArray);
-        SelectionSort.selectionSort(intArray);
+//        HeapSort.sort(intArray);
+//        SelectionSort.selectionSort(intArray);
+        long end = System.currentTimeMillis();
 
         // result after sorting
         System.out.println(Arrays.toString(intArray));
 
         // Retrieve the corresponding names from the map
         System.out.println(Arrays.toString(nameToNumberMap.displayScore(intArray)));
+        System.out.println((end-start)/1000.);
 
     }
 }
