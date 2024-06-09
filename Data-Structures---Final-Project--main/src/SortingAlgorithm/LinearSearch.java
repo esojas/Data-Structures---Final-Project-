@@ -1,5 +1,7 @@
+package SortingAlgorithm;
+
 public class LinearSearch {
-    public static int search(int arr[], int N, int x)
+    public static int linearSearchInt(int arr[], int N, int x)
     {
         for (int i = 0; i < N; i++) {
             if (arr[i] == x)
@@ -8,6 +10,15 @@ public class LinearSearch {
         return -1;
     }
 
+    public static int linearSearchString(String arr[], int N, String x) {
+        for (int i = 0; i < N; i++) {
+            if (arr[i].equals(x))
+                return i;
+        }
+        return -1;
+    }
+
+
     // HashMaps.Driver code
     public static void main(String args[])
     {
@@ -15,7 +26,7 @@ public class LinearSearch {
         int x = 10;
 
         // Function call
-        int result = search(arr, arr.length, x);
+        int result = linearSearchInt(arr, arr.length, x);
         if (result == -1)
             System.out.print(
                     "Element is not present in array");
